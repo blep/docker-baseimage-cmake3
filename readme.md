@@ -7,5 +7,6 @@ It provides:
 - Python pytest
 - CMake 3.5.1
 - ninja-build 1.5.1
+- make
 
-There is probably room to make this image smaller. `apt-get cmake` increased the image size by nearly 200MB. CMake install on Windows is only 50MB, so there is probably some extra dependencies...
+Used `apt-get --no-install-recommends` to avoid getting the "recommended" gcc package dependency (reduce image size by ~140MB).

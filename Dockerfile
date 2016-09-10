@@ -6,9 +6,11 @@
 FROM blep/docker-baseimage-py35:0.1.0
 
 RUN apt-get update
-# cmake: 239.4MB -> 432.2MB
-# + ninja-build -> 432.6MB
-RUN apt-get install -y cmake ninja-build
+# cmake + ninja-build: 239.4MB -> 338.5 MB
+RUN apt-get install -y --no-install-recommends cmake ninja-build make flex bison make-doc 
+
+# autotools have gcc as dependency, so we don't install them for now to keep the image size "small": 338.5MB -> 477.8 MB
+# RUN apt-get install -y --no-install-recommends autoconf automake libtool 
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
