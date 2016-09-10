@@ -3,8 +3,7 @@
 # Use phusion/baseimage as base image. 
 # See https://github.com/phusion/baseimage-docker for more details
 
-#FROM blep/docker-baseimage-py35:0.1.0
-FROM py35:0.1.0
+FROM blep/docker-baseimage-py35:0.1.0
 
 RUN apt-get update
 # cmake: 239.4MB -> 432.2MB
